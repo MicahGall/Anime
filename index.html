@@ -13,24 +13,28 @@
 </head>
 <body>
     <h1>Anime Aggregator</h1>
-    <p>Find and watch anime from legal sources.</p>
+    <p>Find and watch anime from legal sources or search for alternative sites.</p>
+    
+    <input type="text" id="animeSearch" placeholder="Search for anime...">
+    <button onclick="searchAnime()">Search</button>
+    
     <div class="anime-list" id="animeList"></div>
     
     <script>
-        const animeData = [
-            { title: "Attack on Titan", url: "https://www.crunchyroll.com/attack-on-titan" },
-            { title: "Naruto", url: "https://www.funimation.com/shows/naruto/" },
-            { title: "One Piece", url: "https://www.crunchyroll.com/one-piece" },
-            { title: "Demon Slayer", url: "https://www.crunchyroll.com/demon-slayer-kimetsu-no-yaiba" }
-        ];
+        function searchAnime() {
+            let query = document.getElementById("animeSearch").value;
+            window.location.href = `https://www.google.com/search?q=watch ${query} anime site`;
+        }
+        
+        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+        const animeSite = "https://hianime.to"; 
 
-        const animeList = document.getElementById("animeList");
-        animeData.forEach(anime => {
-            const div = document.createElement("div");
-            div.className = "anime-item";
-            div.innerHTML = `<a href="${anime.url}" target="_blank">${anime.title}</a>`;
-            animeList.appendChild(div);
-        });
+        fetch(proxyUrl + animeSite)
+          .then(response => response.text())
+          .then(data => {
+              document.body.innerHTML += `<div class='anime-proxy-content'>${data}</div>`;
+          })
+          .catch(err => console.error("Error fetching anime site:", err));
     </script>
 </body>
 </html>
