@@ -3,48 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Aggregator</title>
+    <title>Watch Anime</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        iframe { width: 100%; height: 80vh; border: none; }
-        .anime-list { max-width: 600px; margin: auto; }
-        .anime-item { padding: 10px; border-bottom: 1px solid #ddd; }
-        a { text-decoration: none; color: blue; }
+        body { text-align: center; font-family: Arial, sans-serif; }
+        iframe { width: 80%; height: 500px; border: none; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <h1>Anime Aggregator</h1>
-    <p>Watch your favorite anime right here.</p>
+    <h1>Watch Anime (Crunchyroll Trailers)</h1>
 
-    <!-- Anime search functionality -->
-    <input type="text" id="animeSearch" placeholder="Search for anime...">
-    <button onclick="searchAnime()">Search</button>
+    <!-- Embed Crunchyroll YouTube video -->
+    <iframe 
+        src="https://www.youtube.com/embed/WVnwJcnrJCw" 
+        allowfullscreen>
+    </iframe>
 
-    <!-- Embed the anime stream using an iframe -->
-    <iframe id="animeIframe" src="" title="Anime Stream"></iframe>
-
-    <div class="anime-list" id="animeList">
-        <div class="anime-item">
-            <a href="#" onclick="loadAnime('https://hianime.to/streaming/anime/attack-on-titan')">Attack on Titan</a>
-        </div>
-        <div class="anime-item">
-            <a href="#" onclick="loadAnime('https://hianime.to/streaming/anime/naruto')">Naruto</a>
-        </div>
-        <div class="anime-item">
-            <a href="#" onclick="loadAnime('https://hianime.to/streaming/anime/demon-slayer')">Demon Slayer</a>
-        </div>
-    </div>
-
-    <script>
-        function searchAnime() {
-            let query = document.getElementById("animeSearch").value;
-            window.location.href = `https://www.google.com/search?q=watch ${query} anime site`;
-        }
-
-        // Function to load anime stream in iframe
-        function loadAnime(url) {
-            document.getElementById("animeIframe").src = url;
-        }
-    </script>
+    <p><a href="https://www.crunchyroll.com/" target="_blank">Go to Crunchyroll for Full Episodes</a></p>
 </body>
 </html>
