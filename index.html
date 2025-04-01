@@ -1,3 +1,21 @@
-<iframe frameborder="0" width="100%" height="500px"
-    src="https://www.dailymotion.com/embed/video/x7wqk7m" allowfullscreen>
-</iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed Video</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        #videoContainer { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Embed Video from URL</h1>
+    <input type="text" id="videoURL" placeholder="Enter video URL" style="width: 80%; padding: 10px;">
+    <button onclick="embedVideo()">Embed Video</button>
+
+    <div id="videoContainer"></div>
+
+    <script src="embedVideo.js"></script>
+</body>
+</html>
