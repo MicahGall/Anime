@@ -6,6 +6,7 @@
     <title>Anime Aggregator</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; }
+        iframe { width: 100%; height: 80vh; border: none; }
         .anime-list { max-width: 600px; margin: auto; }
         .anime-item { padding: 10px; border-bottom: 1px solid #ddd; }
         a { text-decoration: none; color: blue; }
@@ -13,28 +14,37 @@
 </head>
 <body>
     <h1>Anime Aggregator</h1>
-    <p>Find and watch anime from legal sources or search for alternative sites.</p>
-    
+    <p>Watch your favorite anime right here.</p>
+
+    <!-- Anime search functionality -->
     <input type="text" id="animeSearch" placeholder="Search for anime...">
     <button onclick="searchAnime()">Search</button>
-    
-    <div class="anime-list" id="animeList"></div>
-    
+
+    <!-- Embed the anime stream using an iframe -->
+    <iframe id="animeIframe" src="" title="Anime Stream"></iframe>
+
+    <div class="anime-list" id="animeList">
+        <div class="anime-item">
+            <a href="#" onclick="loadAnime('https://hianime.to/streaming/anime/attack-on-titan')">Attack on Titan</a>
+        </div>
+        <div class="anime-item">
+            <a href="#" onclick="loadAnime('https://hianime.to/streaming/anime/naruto')">Naruto</a>
+        </div>
+        <div class="anime-item">
+            <a href="#" onclick="loadAnime('https://hianime.to/streaming/anime/demon-slayer')">Demon Slayer</a>
+        </div>
+    </div>
+
     <script>
         function searchAnime() {
             let query = document.getElementById("animeSearch").value;
             window.location.href = `https://www.google.com/search?q=watch ${query} anime site`;
         }
-        
-        const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-        const animeSite = "https://hianime.to"; 
 
-        fetch(proxyUrl + animeSite)
-          .then(response => response.text())
-          .then(data => {
-              document.body.innerHTML += `<div class='anime-proxy-content'>${data}</div>`;
-          })
-          .catch(err => console.error("Error fetching anime site:", err));
+        // Function to load anime stream in iframe
+        function loadAnime(url) {
+            document.getElementById("animeIframe").src = url;
+        }
     </script>
 </body>
 </html>
