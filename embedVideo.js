@@ -6,8 +6,6 @@ function embedVideo() {
     const videoData = getVideoData(url);
     if (videoData) {
         const iframe = document.createElement('iframe');
-        iframe.width = '560';
-        iframe.height = '315';
         iframe.src = videoData.src;
         iframe.frameBorder = '0';
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
@@ -19,7 +17,7 @@ function embedVideo() {
 }
 
 function getVideoData(url) {
-    const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=|(?:youtu\.be\/))([a-zA-Z0-9_-]{11})/;
     const vimeoRegex = /(?:https?:\/\/)?(?:www\.)?vimeo\.com\/(\d+)/;
     const dailymotionRegex = /(?:https?:\/\/)?(?:www\.)?dailymotion\.com\/video\/([^_]+)_/;
 
