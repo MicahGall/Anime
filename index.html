@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embed Video</title>
+    <title>Embed Website</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; }
-        #videoContainer { margin-top: 20px; }
-        iframe { width: 80%; height: 500px; border: none; }
+        /* Ensure the iframe covers the full viewport */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        iframe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 <body>
-    <h1>Embed Video from URL</h1>
-    <input type="text" id="videoURL" placeholder="Enter video URL" style="width: 80%; padding: 10px;">
-    <button onclick="embedVideo()">Embed Video</button>
-
-    <div id="videoContainer"></div>
-
-    <script src="embedVideo.js"></script>
+    <iframe src="https://www.youtube.com"></iframe>
 </body>
 </html>
