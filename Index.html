@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Aggregator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .anime-list { max-width: 600px; margin: auto; }
+        .anime-item { padding: 10px; border-bottom: 1px solid #ddd; }
+        a { text-decoration: none; color: blue; }
+    </style>
+</head>
+<body>
+    <h1>Anime Aggregator</h1>
+    <p>Find and watch anime from legal sources.</p>
+    <div class="anime-list" id="animeList"></div>
+    
+    <script>
+        const animeData = [
+            { title: "Attack on Titan", url: "https://www.crunchyroll.com/attack-on-titan" },
+            { title: "Naruto", url: "https://www.funimation.com/shows/naruto/" },
+            { title: "One Piece", url: "https://www.crunchyroll.com/one-piece" },
+            { title: "Demon Slayer", url: "https://www.crunchyroll.com/demon-slayer-kimetsu-no-yaiba" }
+        ];
+
+        const animeList = document.getElementById("animeList");
+        animeData.forEach(anime => {
+            const div = document.createElement("div");
+            div.className = "anime-item";
+            div.innerHTML = `<a href="${anime.url}" target="_blank">${anime.title}</a>`;
+            animeList.appendChild(div);
+        });
+    </script>
+</body>
+</html>
